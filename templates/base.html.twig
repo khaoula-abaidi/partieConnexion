@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Archives Ouvertes HAL{% endblock %}</title>
+        <link href="https://bootswatch.com/4/simplex/bootstrap.min.css" rel="stylesheet">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class=" logo-ccsd nbrand" href="https://www.ccsd.cnrs.fr/" title="Centre pour la Communication Scientifique Directe">
+                   <img src="https://hal.archives-ouvertes.fr/img/ccsd.png"
+                                                                                  border="0" alt="CCSD" />
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">HAL</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Episciences.org</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sciencesconf.org</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Support</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Connexion</button>
+            </form>
+        </div>
+    </nav>
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
