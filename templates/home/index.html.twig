@@ -1,4 +1,31 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<h1>Liste des documents publiés sur HAL</h1>
+    <div class="container text-center">
+        <h1>Liste des documents publiés sur HAL</h1>
+        <div class="md-4">
+        {% for document in documents  %}
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="well well-sm">
+                        <div class="row">
+
+                            <div class="col-sm-6 col-md-8">
+                                <h4>{{ document.title }} </h4>
+                                <small>doi :  {{ document.doi }} </small>
+
+
+                                <br />
+
+                                <div class="btn-group">
+                                    <a type="button" class="btn btn-primary" href = "{{ path('documents_show', {'id': document.id }) }}">Plus de détails --
+                                        {{ document.doi }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}
