@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,20 @@ class Structure
      */
     private $pays;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Structure", inversedBy="subStructures")
+     */
+    private $affiliation;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Structure", mappedBy="affiliation")
+     */
+    private $subStructures;
+
+    public function __construct()
+    {
+        $this->subStructures = new ArrayCollection();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -88,4 +104,52 @@ class Structure
 
         return $this;
     }
+
+    public function getSubStructures(): ?self
+    {
+        return $this->subStructures;
+    }
+
+    public function setSubStructures(?self $subStructures): self
+    {
+        $this->subStructures = $subStructures;
+
+        return $this;
+    }
+
+    public function getAffiliation(): ?self
+    {
+        return $this->affiliation;
+    }
+
+    public function setAffiliation(?self $affiliation): self
+    {
+        $this->affiliation = $affiliation;
+
+        return $this;
+    }
+
+    public function addSubStructure(self $subStructure): self
+    {
+        if (!$this->subStructures->contains($subStructure)) {
+            $this->subStructures[] = $subStructure;
+            $subStructure->setAffiliation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubStructure(self $subStructure): self
+    {
+        if ($this->subStructures->contains($subStructure)) {
+            $this->subStructures->removeElement($subStructure);
+            // set the owning side to null (unless already changed)
+            if ($subStructure->getAffiliation() === $this) {
+                $subStructure->setAffiliation(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

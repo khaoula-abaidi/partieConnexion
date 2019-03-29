@@ -68,6 +68,11 @@ class Contributor
      */
     private $documents;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Decision", mappedBy="contributor", cascade={"persist", "remove"})
+     */
+    private $decision;
+
     public function __construct()
     {
         $this->documents = new ArrayCollection();
@@ -212,4 +217,22 @@ class Contributor
 
         return $this;
     }
+
+    public function getDecision(): ?Decision
+    {
+        return $this->decision;
+    }
+
+    public function setDecision(Decision $decision): self
+    {
+        $this->decision = $decision;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $decision->getContributor()) {
+            $decision->setContributor($this);
+        }
+
+        return $this;
+    }
+
 }

@@ -43,6 +43,11 @@ class Document
      */
     private $contributors;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Decision", mappedBy="document", cascade={"persist", "remove"})
+     */
+    private $decision;
+
 
     public function __construct()
     {
@@ -127,6 +132,23 @@ class Document
         if ($this->contributors->contains($contributor)) {
             $this->contributors->removeElement($contributor);
             $contributor->removeDocument($this);
+        }
+
+        return $this;
+    }
+
+    public function getDecision(): ?Decision
+    {
+        return $this->decision;
+    }
+
+    public function setDecision(Decision $decision): self
+    {
+        $this->decision = $decision;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $decision->getDocument()) {
+            $decision->setDocument($this);
         }
 
         return $this;

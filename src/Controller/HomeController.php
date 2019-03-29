@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
+     * HomePage for Listing all documents exiting into the database && Connexion Link
      * @Route("/", name="home_page")
      */
     public function index() : Response
