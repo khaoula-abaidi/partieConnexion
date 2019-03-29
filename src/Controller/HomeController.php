@@ -17,7 +17,6 @@ class HomeController extends AbstractController
         $documents = $this-> getDoctrine()
             -> getRepository(Document::class)
             -> findAll();
-
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'documents' => $documents

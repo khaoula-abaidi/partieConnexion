@@ -12,8 +12,10 @@
                             <div class="col-sm-6 col-md-8">
                                 <h4>{{ document.title }} </h4>
                                 <small>doi :  {{ document.doi }} </small>
-
-
+                                 <h4>Ecrit par  : </h4>
+                                {% for contributor in document.contributors %}
+                                    <b>{{ contributor.lastname }} {{ contributor.firstname }}</b>
+                                {% endfor %}
                                 <br />
 
                                 <div class="btn-group">

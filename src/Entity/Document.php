@@ -39,9 +39,10 @@ class Document
     private $modfiedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Contributor", inversedBy="documents")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Contributor", mappedBy="documents")
      */
     private $contributors;
+
 
     public function __construct()
     {
@@ -115,6 +116,7 @@ class Document
     {
         if (!$this->contributors->contains($contributor)) {
             $this->contributors[] = $contributor;
+            $contributor->addDocument($this);
         }
 
         return $this;
@@ -124,8 +126,10 @@ class Document
     {
         if ($this->contributors->contains($contributor)) {
             $this->contributors->removeElement($contributor);
+            $contributor->removeDocument($this);
         }
 
         return $this;
     }
+
 }

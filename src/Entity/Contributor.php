@@ -64,7 +64,7 @@ class Contributor
     private $photo;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Document", mappedBy="contributors")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Document", inversedBy="contributors")
      */
     private $documents;
 
@@ -72,6 +72,7 @@ class Contributor
     {
         $this->documents = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -198,7 +199,6 @@ class Contributor
     {
         if (!$this->documents->contains($document)) {
             $this->documents[] = $document;
-            $document->addContributor($this);
         }
 
         return $this;
@@ -208,7 +208,6 @@ class Contributor
     {
         if ($this->documents->contains($document)) {
             $this->documents->removeElement($document);
-            $document->removeContributor($this);
         }
 
         return $this;

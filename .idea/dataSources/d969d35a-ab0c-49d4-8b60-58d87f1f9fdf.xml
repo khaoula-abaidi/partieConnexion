@@ -930,10 +930,10 @@
     <table id="234" parent="3" name="contributor">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="235" parent="3" name="document">
+    <table id="235" parent="3" name="contributor_document">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="236" parent="3" name="document_contributor">
+    <table id="236" parent="3" name="document">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
     <table id="237" parent="3" name="migration_versions">
@@ -1002,82 +1002,82 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="250" parent="235" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="251" parent="235" name="doi">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="252" parent="235" name="title">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="253" parent="235" name="created_at">
-      <Position>4</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="254" parent="235" name="modfied_at">
-      <Position>5</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="255" parent="235" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="256" parent="236" name="document_id">
+    <column id="250" parent="235" name="contributor_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="236" name="contributor_id">
+    <column id="251" parent="235" name="document_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="258" parent="236" name="IDX_58C6A0F9C33F7837">
-      <ColNames>document_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="259" parent="236" name="IDX_58C6A0F97A19A357">
+    <index id="252" parent="235" name="IDX_EEAF0F407A19A357">
       <ColNames>contributor_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="260" parent="236" name="PRIMARY">
+    <index id="253" parent="235" name="IDX_EEAF0F40C33F7837">
+      <ColNames>document_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="254" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>document_id
-contributor_id</ColNames>
+      <ColNames>contributor_id
+document_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="261" parent="236" name="FK_58C6A0F9C33F7837">
-      <ColNames>document_id</ColNames>
-      <RefSchemaName>bdconnexion</RefSchemaName>
-      <RefTableName>document</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <foreign-key id="262" parent="236" name="FK_58C6A0F97A19A357">
+    <foreign-key id="255" parent="235" name="FK_EEAF0F407A19A357">
       <ColNames>contributor_id</ColNames>
       <RefSchemaName>bdconnexion</RefSchemaName>
       <RefTableName>contributor</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
+    <foreign-key id="256" parent="235" name="FK_EEAF0F40C33F7837">
+      <ColNames>document_id</ColNames>
+      <RefSchemaName>bdconnexion</RefSchemaName>
+      <RefTableName>document</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="257" parent="236" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="258" parent="236" name="doi">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="259" parent="236" name="title">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="260" parent="236" name="created_at">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="261" parent="236" name="modfied_at">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="262" parent="236" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
     <column id="263" parent="237" name="version">
       <Position>1</Position>
       <DataType>varchar(14)|0s</DataType>
