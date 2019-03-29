@@ -38,7 +38,6 @@ class ContributorController extends AbstractController
             ->add('isAdmin',RadioType::class,['label' => 'Accès Administrateur'])
             ->add('photo',FileType::class,['label' => 'Photo de Profil'])
         ->add('save',SubmitType::class,['label'=>'Créer un compte']);
-
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
             $data = $form->getData();dump($data);
             $contributor->setLogin($data['login'])
@@ -51,8 +50,8 @@ class ContributorController extends AbstractController
                         ->setIsAdmin($data['isAdmin'])
                         ->setPhoto($data['photo']);
             $em->persist($contributor);
-            dump($contributor);
             $em->flush();
+            dump($contributor);
             $email = $contributor->getEmail();
             return $this->redirectToRoute('contributor_create_confirmation',[
                 'email' => $email
