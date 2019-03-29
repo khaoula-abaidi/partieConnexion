@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="flash-messages">
+        <div class="bg-success">Votre compte crée</div>
+    </div>
+    <div class="containter">
+        <div class="col-md-8">
+            <div class="bg-info">
+                Vous devez valider votre compte pour pouvoir s'authentifier <br/>
+                Nous venons de vous envoyer un courrier à l'adresse <b>{{ email }}</b><br/>
+                Ce courrier contient un lien de validation sur lequel vous devez cliquer pour valider ce compte
+            </div>
+        </div>
+        <div class="col-md-4">
+            <a href="{{ path("home_page") }}">Retour à la page d'accueil</a>
+        </div>
+
+    </div>
+{% endblock %}

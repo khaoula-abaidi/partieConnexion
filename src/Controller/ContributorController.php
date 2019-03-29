@@ -17,7 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContributorController extends AbstractController
 {
     /**
+     * Create a new Contributor using a Form
      * @Route("contributor/create", name="contributor_create_index")
+     * @return Response
      */
     public function create(Request $request) :Response
     {
@@ -36,11 +38,24 @@ class ContributorController extends AbstractController
 
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
             $em->persist($contributor);
+            dump($contributor);
             $em->flush();
         }
         return $this->render('contributor/create.html.twig', [
             'controller_name' => 'ContributorController',
+            'email' => $contributor->getEmail(),
             'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("contributor/create/confirmation", name = "contributor_create_confirmation")
+     * @return Response
+     */
+    public function confirmation(Contributor $contributor) : Response
+    {
+        return $this->render('contributor/confirmation.html.twig',[
+            'email' => $contributor->getEmail()
         ]);
     }
     /**

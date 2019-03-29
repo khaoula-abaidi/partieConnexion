@@ -21,8 +21,8 @@ class ContributorType extends AbstractType
             ->add('email')
             ->add('isAdmin')
             ->add('photo')
-            ->add('documents')
-            ->add('decision')
+         //   ->add('documents')
+         //   ->add('decision')
         ;
     }
 
