@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Contributor;
+use App\Entity\Document;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -17,6 +18,20 @@ class ContributorRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Contributor::class);
+    }
+
+
+    /**
+     * @param $id
+     * @return Document[] Returns an array of Document's Object
+     */
+    public function findAllDocuments($id)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere("c.id = '$id'")
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
     // /**

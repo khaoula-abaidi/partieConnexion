@@ -38,17 +38,27 @@ class HomeController extends AbstractController
       $form->handleRequest($request);
       if($form->isSubmitted()&& $form->isValid()){
           $data = $form->getData();
+          dump($data);
+          $login = $data->getLogin();
+          $pwd = $data->getPwd();
           /**
            *Searching for contributor's having login && Pwd into the database
            * @var $contributor Contributor
            */
           $contributor = $repository->findOneBy([
-              'login' => $data['login'],
-              'pwd'   => $data['pwd']
+              'login' => $login,
+              'pwd'   => $pwd
           ]);
+          dump($contributor);
         if($contributor!==null){
             $this->addFlash('success','Authentification réussite');
-            return $this->redirectToRoute('contributor_authentification');
+            return $this->redirectToRoute('contributor_authentification',['id'=> 1]);
+        }
+        else {
+            return $this->render('contributor/error.html.twig',[
+                'login' => $login,
+                'pwd'   => $pwd
+            ]);
         }
       }
      return $this->render('/home/connexion.html.twig',[

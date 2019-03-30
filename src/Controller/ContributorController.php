@@ -13,12 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContributorController extends AbstractController
 {
     /**
-     * @Route("/contributor/create", name ="contributor_create")
+     * @Route("/contributor/create", name ="contributor_create_index")
      * @return Response
      */
     public function create(Request $request, ObjectManager $manager) : Response
     {
-        $form = $this->createForm(AddContributorType::class);
+        $form  = $this->createForm(AddContributorType::class);
         $form->handleRequest($request);
         if($form->isSubmitted()&& $form->isValid()){
             $data = $form->getData();
@@ -26,21 +26,24 @@ class ContributorController extends AbstractController
              * @var $contributor Contributor
              */
             $contributor = new Contributor();
-            $contributor->setCivility('Mme');
-            $contributor->setFirstname('khaoula');
-            $contributor->setLastname('abaidi');
-            $contributor->setComplementName('gachtouta');
-             $contributor          ->setEmail('abaidik@gmail.com');
-                $contributor       ->setPhoto('dd.jpeg');
-                  $contributor     ->setLogin('lolo');
-                   $contributor    ->setPwd('llll');
-                   $contributor    ->setIsAdmin(1);
-            $manager->persist($contributor);
-            $manager->flush();
+            $contributor = $data;
+            /*
+            $contributor->setCivility($data['civility']);
+            $contributor->setFirstname($data['firstname']);
+            $contributor          ->setLastname($data['lastname']);
+            $contributor         ->setComplementName($data['complementName']);
+            $contributor        ->setEmail($data['email']);
+            $contributor        ->setPhoto($data['photo']);
+            $contributor        ->setLogin($data['login']);
+            $contributor        ->setPwd($data['pwd']);
+            $contributor        ->setIsAdmin($data['isAdmin']);
+             */
+           $manager->persist($contributor);
+           $manager->flush();
             $this->addFlash('success','Votre compte est crée');
-            $this->redirectToRoute('contributor_creation_confirmation');
+            return $this->render('contributor/confirmation.html.twig', [
+                'email'=> $contributor->getEmail()]);
         }
-
             return $this->render('/contributor/creation.html.twig',[
             'form' => $form->createView(),
             ]);
@@ -58,6 +61,9 @@ class ContributorController extends AbstractController
     public function show($id)
     {
         $contributor = $this->getDoctrine()->getRepository(Contributor::class)->find($id);
+        $documents = $this->getDoctrine()->getManager()
+            ->getRepository(Contributor::class)->findAllDocuments($id);
+        dump($documents);die;
         if(!$contributor){
             return $this->render('contributor/error.html.twig');
         }
@@ -66,4 +72,21 @@ class ContributorController extends AbstractController
             'contributor' => $contributor
         ]);
     }
+
+    /**
+     * Listing All document(s related to contributor's having id $id
+     * @Route("/contributor/{id}/documents", name ="contributor_listing")
+     * @return Response
+     */
+    public function listing($id) : Response
+    {
+
+        $documents = $this->getDoctrine()->getManager()
+                      ->getRepository(Contributor::class)->findAllDocuments($id);
+        dump($documents);
+        return $this->render('contributor/documents.html.twig', [
+            'documents' => $documents]);
+    }
+
+
 }
