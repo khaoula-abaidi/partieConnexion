@@ -1,33 +1,55 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="container text-center">
-        <h1>Liste des documents publiés sur HAL</h1>
-        <div class="md-4">
-        {% for document in documents  %}
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6">
-                    <div class="well well-sm">
-                        <div class="row">
-
-                            <div class="col-sm-6 col-md-8">
-                                <h4>{{ document.title }} </h4>
-                                <small>doi :  {{ document.doi }} </small>
-                                 <h4>Ecrit par  : </h4>
-                                {% for contributor in document.contributors %}
-                                    <b>{{ contributor.lastname }} {{ contributor.firstname }}</b>
-                                {% endfor %}
-                                <br />
-
-                                <div class="btn-group">
-                                    <a type="button" class="btn btn-primary" href = "{{ path('documents_show', {'id': document.id }) }}">Plus de détails --
+<table width="100%">
+    <tbody>
+    <tr>
+        <td style="text-align: justify;" valign="top" width="63%">
+            <p style="text-align: center;">&nbsp;</p>
+    <div class="container">
+        <h3>Archive ouverte HAL</h3>
+        <p>L'archive ouverte pluridisciplinaire <strong>HAL</strong>, est destin&eacute;e au d&eacute;p&ocirc;t et &agrave; la diffusion d'articles scientifiques de niveau recherche, publi&eacute;s ou non, et de th&egrave;ses, &eacute;manant des &eacute;tablissements d'enseignement et de recherche fran&ccedil;ais ou &eacute;trangers, des laboratoires publics ou priv&eacute;s.</p>
+        <p><strong>&Agrave; l'attention du d&eacute;posant</strong></p>
+        <ul>
+            <li>Le d&eacute;p&ocirc;t du texte int&eacute;gral est effectu&eacute; en accord avec les co-auteurs et dans le respect de la politique des &eacute;diteurs</li>
+            <li>La mise en ligne est assujettie &agrave; une mod&eacute;ration, la direction de HAL se r&eacute;servant le droit de refuser les articles ne correspondant pas aux crit&egrave;res de l'archive</li>
+            <li>Tout d&eacute;p&ocirc;t est d&eacute;finitif, aucun retrait ne sera effectu&eacute; apr&egrave;s la mise en ligne de l'article</li>
+            <li>Les fichiers textes au format pdf ou les fichiers images composant votre d&eacute;p&ocirc;t sont maintenant envoy&eacute;s au CINES dans un contexte d'archivage &agrave; long terme.</li>
+        </ul>
+        <p><strong>&Agrave; l'attention des lecteurs</strong></p>
+        <ul>
+            <li>Dans un contexte de diffusion &eacute;lectronique, tout auteur conserve ses droits intellectuels, notamment le fait de devoir &ecirc;tre correctement cit&eacute; et reconnu comme l'auteur d'un document.</li>
+        </ul>
+        <div class="widget widget"><h3 class="widget-header">Les derniers documents de HAL</h3>
+            <div class="widget-content">
+                    {% for document in documents  %}
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <p class="card-text">
+                                        <small>doi :  {{ document.doi }} </small>
+                                        <br />
+                                    <span class="text">{{ document.title }} </span>
+                                        <br />
+                                        <strong>Auteurs: </strong>
+                                           {% for contributor in document.contributors %}
+                                                            <i class="far fa-edit" style="font-size:24px">
+                                                                {{ contributor.lastname }} {{ contributor.firstname }}
+                                                            </i>
+                                           {% endfor %}
+                                       <br />
+                                    <div class="btn-group">
+                                      <a type="button" class="btn btn-primary"
+                                       href = "{{ path('documents_show', {'id': document.id }) }}">Plus de détails --
                                         {{ document.doi }}</a>
+                                     </div>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+                    {% endfor %}
+             </div>
         </div>
     </div>
+        </td>
+    </tr>
+    </tbody>
+    </table>
 {% endblock %}

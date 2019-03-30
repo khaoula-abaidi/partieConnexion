@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h2>Votre Profil</h2>
+        <p>Il s'agit de votre espace personnel sur HAL</p>
+        <div class="col-sm-2 col-md-2">
+            <img src="{{ contributor.photo }}" alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <blockquote>
+                <p>{{ contributor.civility }} {{ contributor.lastname }} {{ contributor.firstname }}</p>
+            </blockquote>
+            <p> <i class="glyphicon glyphicon-envelope"></i> {{ contributor.email }}
+                <br
+                /> <i class="glyphicon glyphicon-globe"></i> www.bootsnipp.com
+        </div>
+                <a href="#" class="btn btn-primary stretched-link">My Documents</a>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -4,9 +4,16 @@
         <meta charset="UTF-8">
         <title>{% block title %}Archives Ouvertes HAL{% endblock %}</title>
         <link href="https://bootswatch.com/4/simplex/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    {%  for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class=" logo-ccsd nbrand" href="https://www.ccsd.cnrs.fr/" title="Centre pour la Communication Scientifique Directe">
@@ -34,12 +41,15 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Connexion</button>
+                <a class="btn btn-secondary text-dark my-2 my-sm-0" href="{{ path('home_connexion') }}">Connexion</a>
             </form>
         </div>
     </nav>
 
         {% block body %}{% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
