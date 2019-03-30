@@ -61,9 +61,6 @@ class ContributorController extends AbstractController
     public function show($id)
     {
         $contributor = $this->getDoctrine()->getRepository(Contributor::class)->find($id);
-        $documents = $this->getDoctrine()->getManager()
-            ->getRepository(Contributor::class)->findAllDocuments($id);
-        dump($documents);die;
         if(!$contributor){
             return $this->render('contributor/error.html.twig');
         }
@@ -82,9 +79,10 @@ class ContributorController extends AbstractController
     {
 
         $documents = $this->getDoctrine()->getManager()
-                      ->getRepository(Contributor::class)->findAllDocuments($id);
+                      ->getRepository(Contributor::class)->find($id)->getDocuments();
         dump($documents);
         return $this->render('contributor/documents.html.twig', [
+            'id'=> $id,
             'documents' => $documents]);
     }
 

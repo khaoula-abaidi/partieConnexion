@@ -59,7 +59,26 @@
                 /> <i class="glyphicon glyphicon-globe"></i> www.bootsnipp.com
         </div>
         <div class="col-sm-4 col-md-4">
-        <a href="" class="btn btn-primary stretched-link">My Documents</a>
+            <h4>Mes documents publiés sur HAL : </h4>
+            {% for document in contributor.documents %}
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="well well-sm">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-8">
+                                    <h4>{{ document.title }} </h4>
+                                    <small>doi :  {{ document.doi }} </small>
+                                    <br />
+
+                                    <div class="btn-group">
+                                        <a class="btn btn-primary" href = "{{ path('home_page') }}"> Déposer </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
             </div>
         </div>
