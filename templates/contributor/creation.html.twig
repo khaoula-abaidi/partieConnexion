@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+    <h1 class="mt-5">Créer un compte sur HAL</h1>
+        <span class="col-sm-6">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </span>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container text-center">
+        <p class="text-justify text-primary bg-info">
+            Vous devez valider votre compte pour pouvoir s'authentifier.<br />
+            Nous venons de vous envoyer un courrier à l'adresse <b> email </b><br />
+            Ce courrier contient un lien surlequel vous devez cliquer pour valider ce compte.
+        </p>
+        <div class="text-left">
+            <a href="{{ path('home_page') }}">Retour à la page d'accueil</a>
+        </div>
+    </div>
+
+{% endblock %}
