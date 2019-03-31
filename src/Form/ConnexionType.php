@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 
 class ConnexionType extends AbstractType
 {
@@ -20,14 +21,18 @@ class ConnexionType extends AbstractType
         $builder
             ->add('login',\Symfony\Component\Form\Extension\Core\Type\TextType::class,[
                 'label' => 'Nom Utilisateur',
-                'help' => 'Composé par des caractères spéciaux, alphanumériques',
-                'required' => true
+                'help' => 'Login est obligatoire',
+                'required' => true,
+                 'constraints' => [new Length(['min' => 1])]
+
             ])
             ->add('pwd',PasswordType::class,[
                 'label' => 'Mot de passe',
-                'help' => 'Le mot de passe ne doit pas dépasser 10 caractères',
-                'required' => true
-            ])
+                'help' => 'Mot de passe est obligatoire',
+                'required' => true,
+                 'constraints' => [new Length(['min' => 1])]
+                   ])
+
             ->add('save',SubmitType::class,['label'=> 'Se connecter'])
         ;
     }

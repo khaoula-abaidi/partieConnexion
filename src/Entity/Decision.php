@@ -25,12 +25,6 @@ class Decision
      * @ORM\Column(type="datetime")
      */
     private $allowedAt;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $changedAt;
-
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
@@ -77,18 +71,6 @@ class Decision
         return $this;
     }
 
-    public function getChangedAt(): ?\DateTimeInterface
-    {
-        return $this->changedAt;
-    }
-
-    public function setChangedAt(\DateTimeInterface $changedAt): self
-    {
-        $this->changedAt = $changedAt;
-
-        return $this;
-    }
-
     public function getIsTaken(): ?bool
     {
         return $this->isTaken;
@@ -118,6 +100,12 @@ class Decision
         return $this->contributor;
     }
 
+    public function setContributor(?Contributor $contributor): self
+    {
+        $this->contributor = $contributor;
+
+        return $this;
+    }
     public function setStructure(Contributor $contributor): self
     {
         $this->contributor = $contributor;

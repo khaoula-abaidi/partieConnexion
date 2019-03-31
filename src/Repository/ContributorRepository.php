@@ -20,20 +20,6 @@ class ContributorRepository extends ServiceEntityRepository
         parent::__construct($registry, Contributor::class);
     }
 
-
-    /**
-     * @param $id
-     * @return Document[] Returns an array of Document's Object
-     */
-    public function findAllDocuments($id)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere("c.id = '$id'")
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-
     // /**
     //  * @return Contributor[] Returns an array of Contributor objects
     //  */

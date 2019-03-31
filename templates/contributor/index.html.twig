@@ -43,45 +43,44 @@
         {{ message }}
     </div>
 {% endfor %}
-
+    <section class="text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Votre Profil</h1>
+            <p class="lead text-muted">Il s'agit de votre espace personnel sur HAL</p>
+            <p>
+                <img src="{{ contributor.photo }}" alt="" class="img-rounded img-responsive" />
+            </p>
+            <p>
+            <blockquote>{{ contributor.civility }} {{ contributor.lastname }} {{ contributor.firstname }}</blockquote>
+            </p>
+            <p>
+                <i class="glyphicon glyphicon-envelope"></i> {{ contributor.email }} <br/>
+                <a href="#" class="btn btn-primary my-2">Editer mon profil</a>
+            </p>
+        </div>
+    </section>
+<div class="album py-5 bg-light">
     <div class="container">
-        <h2>Votre Profil</h2>
-        <p>Il s'agit de votre espace personnel sur HAL</p>
-        <div class="col-sm-2 col-md-2">
-            <img src="{{ contributor.photo }}" alt="" class="img-rounded img-responsive" />
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <blockquote>
-                <p>{{ contributor.civility }} {{ contributor.lastname }} {{ contributor.firstname }}</p>
-            </blockquote>
-            <p> <i class="glyphicon glyphicon-envelope"></i> {{ contributor.email }}
-                <br
-                /> <i class="glyphicon glyphicon-globe"></i> www.bootsnipp.com
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <h4>Mes documents publiés sur HAL : </h4>
+        <div class="row">
             {% for document in contributor.documents %}
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="well well-sm">
-                            <div class="row">
-                                <div class="col-sm-6 col-md-8">
-                                    <h4>{{ document.title }} </h4>
-                                    <small>doi :  {{ document.doi }} </small>
-                                    <br />
-
-                                    <div class="btn-group">
-                                        <a class="btn btn-primary" href = "{{ path('home_page') }}"> Déposer </a>
-                                    </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="https://fakeimg.pl/350x200/ff0000/000" alt="Card image cap">
+                        <div class="card-body"><small class="text-primary">{{ document.doi }}</small>
+                            <p class="card-text">{{ document.title }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Voir plus de détails</button>
                                 </div>
+                                <small class="text-muted fa fa-check"></small>
                             </div>
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
-            </div>
-        </div>
     </div>
+</div>
 </body>
 </html>

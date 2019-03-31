@@ -52,13 +52,7 @@ class HomeController extends AbstractController
           dump($contributor);
         if($contributor!==null){
             $this->addFlash('success','Authentification réussite');
-            return $this->redirectToRoute('contributor_authentification',['id'=> 1]);
-        }
-        else {
-            return $this->render('contributor/error.html.twig',[
-                'login' => $login,
-                'pwd'   => $pwd
-            ]);
+            return $this->redirectToRoute('contributor_authentification',['id'=> $contributor->getId()]);
         }
       }
      return $this->render('/home/connexion.html.twig',[
