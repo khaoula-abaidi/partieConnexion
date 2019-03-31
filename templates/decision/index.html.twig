@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container-fluid text-center">
+        <h1>Archive Ouverte HAL</h1>
+        <div class="text-muted">Les décisions non encore prises</div>
+        <div class="jumbotron">
+
+            <table class="table table-sm">
+                <thead>
+                     <tr>
+                         <th scope="col text-center">##</th>
+                         <th scope="col text-center">Document</th>
+                         <th scope="col text-center">Contributeur</th>
+                         <th scope="col text-center">Décision </th>
+                         <th scope="col text-center">Date de la décision </th>
+                     </tr>
+                </thead>
+                <tbody>
+                {% for decision in decisions %}
+                  <th scope="row">1</th>
+                            <td>Titre du document  : {{ decision.document.title }} </td>
+                            <td>Contributor :  {{ decision.contributor.lastname }} {{ decision.contributor.firstname }} </td>
+                            <td> {{ decision.content }}</td>
+                            <td>{{ decision.allowedAt | date('Y-m-d H i s')}}</td>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

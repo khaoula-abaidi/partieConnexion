@@ -186,7 +186,11 @@ class Contributor
 
         return $this;
     }
-
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Decision", inversedBy="contributor",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $decision;
     /**
      * @return Collection|Document[]
      */
@@ -209,6 +213,17 @@ class Contributor
         if ($this->documents->contains($document)) {
             $this->documents->removeElement($document);
         }
+
+        return $this;
+    }
+    public function getDecision(): ?Decision
+    {
+        return $this->decision;
+    }
+
+    public function setDecison(?Decision $decision): self
+    {
+        $this->decision = $decision;
 
         return $this;
     }

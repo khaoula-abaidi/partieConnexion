@@ -77,7 +77,6 @@ class ContributorController extends AbstractController
      */
     public function listing($id) : Response
     {
-
         $documents = $this->getDoctrine()->getManager()
                       ->getRepository(Contributor::class)->find($id)->getDocuments();
         dump($documents);
@@ -85,6 +84,4 @@ class ContributorController extends AbstractController
             'id'=> $id,
             'documents' => $documents]);
     }
-
-
 }
