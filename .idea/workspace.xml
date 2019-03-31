@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a596a34-69a9-45f3-95c7-433f7af715b2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d969d35a-ab0c-49d4-8b60-58d87f1f9fdf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d969d35a-ab0c-49d4-8b60-58d87f1f9fdf.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Decision.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Decision.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ConnexionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ConnexionType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ContributorRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ContributorRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contributor/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contributor/index.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="7a596a34-69a9-45f3-95c7-433f7af715b2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +27,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="bdconnexion@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="bdconnexion@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="bdconnexion@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="bdconnexion: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
     </expand>
     <select />
   </component>
@@ -62,14 +41,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Command/CreateDecisionCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
+            <state>
+              <caret lean-forward="true" />
               <folding>
                 <element signature="e#31#55#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/decisionsDepot.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -106,6 +94,7 @@
         <option value="$PROJECT_DIR$/templates/home/connexion.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Decision.php" />
         <option value="$PROJECT_DIR$/src/Command/CreateDecisionCommand.php" />
+        <option value="$PROJECT_DIR$/decisionsDepot.php" />
       </list>
     </option>
   </component>
@@ -216,8 +205,9 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="537" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-5" />
+    <option name="y" value="21" />
     <option name="width" value="912" />
     <option name="height" value="722" />
   </component>
@@ -300,18 +290,18 @@
       <workItem from="1553946100104" duration="532000" />
       <workItem from="1553974279666" duration="13951000" />
       <workItem from="1554020461406" duration="15000" />
-      <workItem from="1554061062339" duration="8738000" />
+      <workItem from="1554061062339" duration="9037000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53735000" />
+    <option name="totallyTimeSpent" value="54034000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-5" y="21" width="912" height="722" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25642964" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25586855" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -555,13 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://d969d35a-ab0c-49d4-8b60-58d87f1f9fdf/schema/bdconnexion/table/decision">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://d969d35a-ab0c-49d4-8b60-58d87f1f9fdf/schema/bdconnexion/table/contributor_document">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -583,13 +566,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://d969d35a-ab0c-49d4-8b60-58d87f1f9fdf/schema/bdconnexion/table/decision">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Command/CreateDecisionCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#31#55#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decisionsDepot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
         </state>
       </provider>
     </entry>
