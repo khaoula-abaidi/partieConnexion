@@ -186,9 +186,12 @@ class Contributor
 
         return $this;
     }
+
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Decision", inversedBy="contributor",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(
+     *     nullable=true
+     *    )
      */
     private $decision;
     /**
